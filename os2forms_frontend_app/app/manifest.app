@@ -8,10 +8,9 @@ author_url = http://www.bellcom.com
 screenshots[] = os2forms.png
 logo = os2froms_icon.png
 
-dependencies[i18n] = i18n 7.x-2.0
+dependencies[i18n] = i18n 7.x-1.13
 dependencies[variable] = variable 7.x-2.5
 dependencies[entity] = entity 7.x-1.6
-dependencies[i18n_string] = i18n_string 7.x 1.13
 dependencies[views] = views 7.x-3.11
 dependencies[ctools] = ctools 7.x-1.7
 dependencies[pathauto] = pathauto 7.x-1.2
@@ -27,7 +26,7 @@ dependencies[node_export] = node_export 7.x-3.0
 dependencies[webform_submission_uuid] = webform_submission_uuid 7.x-1.x-dev
 dependencies[libraries] = libraries 7.x-2.2
 
-downloadables[os2forms_frontend_app 7.x-1.0] =https://github.com/OS2Forms/OS2forms-1.0/blob/master/os2forms_frontend_app.zip?raw=true
+downloadables[os2forms_frontend_app 7.x-1.0] = https://github.com/OS2Forms/OS2forms-1.0/blob/master/os2forms_frontend_app.zip?raw=true
 downloadables[i18n 7.x-1.13] = http://ftp.drupal.org/files/projects/i18n-7.x-1.13.tar.gz
 downloadables[variable 7.x-2.5] = http://ftp.drupal.org/files/projects/variable-7.x-2.5.tar.gz
 downloadables[entity 7.x-1.6] = http://ftp.drupal.org/files/projects/entity-7.x-1.6.tar.gz
@@ -36,7 +35,6 @@ downloadables[l10n_update 7.x-2.0] = http://ftp.drupal.org/files/projects/l10n_u
 downloadables[ctools 7.x-1.7] = http://ftp.drupal.org/files/projects/ctools-7.x-1.7.tar.gz
 downloadables[token 7.x-1.6] = http://ftp.drupal.org/files/projects/token-7.x-1.6.tar.gz 
 downloadables[services 7.x-3.12] = http://ftp.drupal.org/files/projects/services-7.x-3.12.tar.gz 
-downloadables[i18n_string 7.x 1.13] = http://ftp.drupal.org/files/projects/i18n_string-7.x-3.13.tar.gz
 downloadables[pathauto 7.x-1.2] = http://ftp.drupal.org/files/projects/pathauto-7.x-1.2.tar.gz
 downloadables[webform_service 7.x-3.x-dev] = http://ftp.drupal.org/files/projects/webform_service-7.x-3.x-dev.tar.gz
 downloadables[services_basic_auth 7.x-1.3] = http://ftp.drupal.org/files/projects/services_basic_auth-7.x-1.3.tar.gz 

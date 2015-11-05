@@ -33,9 +33,10 @@ features[filter][] = plain_text
 features[node][] = webform
 features[node_export_features][] = 52b05276-ab35-446d-9da4-6e530a67ca86
 features[services_endpoint][] = rest
+stylesheets[all][]  = css/style.css
 
 ; Information added by Drupal.org packaging script on 2014-07-28
 version = "1.0"
 core = "7.x"
-project = "os2forms_frontend_app"
+project = "OS2Forms"
 datestamp = "1406515128"

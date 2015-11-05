@@ -18,6 +18,10 @@ function os2forms_backend_app_uninstall() {
   else {
     drupal_uninstall_modules(array('os2forms_server_communication'));
   }
+  
+}
+
+function os2forms_backend_app_disable(){
   // webform deletion
   $query = db_select('node', 'n')
     ->fields('n', array('nid'))
@@ -26,12 +30,6 @@ function os2forms_backend_app_uninstall() {
   $nid = $query->execute()->fetchField();
   if ($nid)
     node_delete($nid);
-}
-
-function os2forms_backend_app_disable() {
-  if (module_exists('os2forms_server_communication')) {
-    module_disable(array('os2forms_server_communication'));
-  }
 }
 
 function os2forms_backend_app_install() {

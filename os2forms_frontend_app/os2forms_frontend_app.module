@@ -5,3 +5,8 @@
  */
 
 include_once 'os2forms_frontend_app.features.inc';
+
+function os2forms_frontend_app_preprocess_page($vars) {  
+    drupal_add_css(drupal_get_path('module', 'os2forms_frontend_app') . "/css/style.css", "module");
+  
+}
