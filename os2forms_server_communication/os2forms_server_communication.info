@@ -1,0 +1,7 @@
+name = OS2Forms Server Communication
+description = Backend function for form submission
+core = 7.x
+version = "7.x-1.0"
+package = OS2FORMS
+dependencies[] = uuid
+
