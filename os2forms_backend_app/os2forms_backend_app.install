@@ -2,9 +2,9 @@
 
 
 function os2forms_backend_app_enable() {
-  $feature = features_get_features('os2forms_frontend_app');
+  $feature = features_get_features('os2forms_backend_app');
   $components = array_keys($feature->info['features']);
-  features_revert(array('os2forms_frontend_app' => $components));
+  features_revert(array('os2forms_backend_app' => $components));
   if (!module_exists('os2forms_server_communication')) {
     module_enable(array('os2forms_server_communication'), TRUE);
   }
