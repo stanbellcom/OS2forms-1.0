@@ -8,7 +8,7 @@
  * Implements hook_node_export_features_default().
  */
 function os2forms_frontend_app_node_export_features_default() {
-   $node_export = array(
+  $node_export = array(
   'code_string' => 'array(
   (object) array(
       \'vid\' => \'2\',
@@ -24,18 +24,18 @@ function os2forms_frontend_app_node_export_features_default() {
       \'type\' => \'webform\',
       \'language\' => \'en\',
       \'created\' => \'1444811666\',
-      \'changed\' => \'1447245896\',
+      \'changed\' => \'1447268631\',
       \'tnid\' => \'0\',
       \'translate\' => \'0\',
       \'uuid\' => \'52b05276-ab35-446d-9da4-6e530a67ca86\',
-      \'revision_timestamp\' => \'1447245896\',
+      \'revision_timestamp\' => \'1447268631\',
       \'revision_uid\' => \'1\',
       \'webform\' => array(
         \'nid\' => \'2\',
-        \'next_serial\' => \'48\',
-        \'confirmation\' => \'<p>Vi takker for din indsendelse af formular om enlig forsørger.</p><p>Har du spørgsmål til behandlingen er du velkommen til at skrive til xxx@balk.dk</p><p>&nbsp;</p><p>Hilsen</p><p>&nbsp;</p><p>Ballerup Kommune</p>\',
+        \'next_serial\' => \'50\',
+        \'confirmation\' => \'\',
         \'confirmation_format\' => \'full_html\',
-        \'redirect_url\' => \'<confirmation>\',
+        \'redirect_url\' => \'webform/[node:nid]/submission/[submission:sid]/done\',
         \'status\' => \'1\',
         \'block\' => \'0\',
         \'allow_draft\' => \'0\',
@@ -117,7 +117,7 @@ function os2forms_frontend_app_node_export_features_default() {
               \'private\' => 0,
               \'wrapper_classes\' => \'inline-field\',
               \'css_classes\' => \'\',
-              \'aslist\' => 0,
+               \'aslist\' => 0,
               \'exclude_cv\' => 0,
               \'empty_option\' => \'\',
               \'optrand\' => 0,
