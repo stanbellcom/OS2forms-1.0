@@ -136,8 +136,8 @@ function os2forms_server_communication_sync_submissions() {
       $url = $server->url . '/rest/webform_submission/' . $submission->nid . '/' . $submission->sid . '.json';
       $new_submission = drupal_http_request($url, $options);
       if ($new_submission->code != 200) {
-         watchdog('OS2forms', 'Request '. $url . 'was failed with message: ' . $result->status_message, WATCHDOG_WARNING);
-        continue;
+         watchdog('OS2forms', 'Request %uri was failed with message: %message', array('%uri' => $url,'%message' => $result->status_message), WATCHDOG_WARNING);
+         continue;
       }
       $submission_id = os2forms_server_communication_add_backend_submission($local_webform_nid, json_decode($new_submission->data));
      
@@ -177,10 +177,7 @@ function os2forms_server_communication_add_backend_submission($nid, $data) {
    else
      $pre_data[$cid]= array(0=>$submission_id);
  
-// $submission_data = $data->data->$cid[0] = $submission_id;
-  //else 
-  //$submission_data =  (object)((array)$data->data + array($cid => array(0=>$submission_id)));
-$submission_data = (object)$pre_data;
+  $submission_data = (object)$pre_data;
 
   global $user;
   
@@ -209,7 +206,8 @@ function os2forms_server_communication_update_frontend_submission($url, $headers
   $result = drupal_http_request($url, $options);
 
   if ($result->code != 200)
-    watchdog('OS2forms', 'Request '. $url . 'was failed with message: ' . $result->status_message, WATCHDOG_WARNING);
+    watchdog('OS2forms', 'Request %uri was failed with message: %message', array('%uri' => $url,'%message' => $result->status_message), WATCHDOG_WARNING);
+     
 }
 
 function _os2forms_server_communication_prepare_frontend_submission($nid) {
@@ -219,7 +217,7 @@ function _os2forms_server_communication_prepare_frontend_submission($nid) {
     if ($component['type'] == "textfield")
       $data[$component["form_key"]] = "";
     else if ($component['type'] == "select")
-      $data[$component["form_key"]] = array('#options' => "");
+      $data[$component["form_key"]] = NULL;
     else if ($component['type'] == "date")
       $data[$component["form_key"]] = array('day' => "", 'month' => "", "year" => '');
   }
@@ -237,8 +235,8 @@ function _os2forms_server_communication_get_frontend_webform_nid_by_title($title
     $result = (json_decode($result->data));
     return $result[0]->nid;
   } else {
-     watchdog('OS2forms', 'Request '. $url . 'was failed with message: ' . $result->status_message, WATCHDOG_WARNING);
-    return FALSE;
+     watchdog('OS2forms', 'Request %uri was failed with message: %message', array('%uri' => $url,'%message' => $result->status_message), WATCHDOG_WARNING);
+     return FALSE;
   }
 }
 function _os2forms_server_communication_get_cid_by_form_key($nid, $form_key) {
