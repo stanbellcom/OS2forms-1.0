@@ -112,7 +112,7 @@ function os2forms_backend_app_node_export_features_default() {
             \'value\' => \'\',
             \'extra\' => array(
               \'items\' => "1|Jeg er enlig forsørger\\r\\n2|Jeg er ikke længere enlig forsørger fra dato",
-              \'multiple\' => 1,
+              \'multiple\' => 0,
               \'title_display\' => \'none\',
               \'private\' => 0,
               \'wrapper_classes\' => \'inline-field\',
