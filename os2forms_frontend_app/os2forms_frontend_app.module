@@ -31,8 +31,9 @@ function os2forms_frontend_app_submission_confirm($nid, $sid){
    $node = node_load($nid);
    $submission =webform_get_submission($nid, $sid);
    foreach ($submission->data as $key => $value)
-     $submission_data[$node->webform['components'][$key]['form_key']] = $value[0];
-   $output = '<p>' .$submission_data['navn'] . '<br/>'
+    $submission_data[$node->webform['components'][$key]['form_key']] = $value[0];
+   $output  = '<a class = "print_data" href = "/print/webform/' . $nid . '/submission/' . $sid . '/done" target="_blank">Print</a>';
+    $output .= '<p>' .$submission_data['navn'] . '<br/>'
             . $submission_data['address'] . '<br/>'
             . $submission_data['postnr'] . '&nbsp;' . $submission_data['city'] .'<br/>'
             . 'CPR: ' . $submission_data['cpr_number'] . '</p>';

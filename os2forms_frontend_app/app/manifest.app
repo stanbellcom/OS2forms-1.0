@@ -1,7 +1,7 @@
 name = OS2Forms frontend server
 description = A Drupal distro for advanced webforms in Danish Municipalities
 machine_name = os2forms_frontend_app
-version =1.0 
+version =1.1 
 downloadable = os2forms_frontend_app 7.x-1.0
 author = Bellcom
 author_url = http://www.bellcom.com
@@ -25,6 +25,7 @@ dependencies[features] = features 7.x-1.0
 dependencies[node_export] = node_export 7.x-3.0
 dependencies[webform_submission_uuid] = webform_submission_uuid 7.x-1.x-dev
 dependencies[libraries] = libraries 7.x-2.2
+dependencies[print] = print 7.x-2.0
 
 downloadables[os2forms_frontend_app 7.x-1.0] = https://github.com/OS2Forms/OS2forms-1.0/blob/master/os2forms_frontend_app.zip?raw=true
 downloadables[i18n 7.x-1.13] = http://ftp.drupal.org/files/projects/i18n-7.x-1.13.tar.gz
@@ -46,3 +47,4 @@ downloadables[node_export 7.x-3.0] = http://ftp.drupal.org/files/projects/node_e
 downloadables[uuid 7.x-1.0-beta1] = http://ftp.drupal.org/files/projects/uuid-7.x-1.0-beta1.tar.gz 
 downloadables[webform_submission_uuid 7.x-1.x-dev] = http://ftp.drupal.org/files/projects/webform_submission_uuid-7.x-1.x-dev.tar.gz 
 downloadables[libraries 7.x-2.2] = http://ftp.drupal.org/files/projects/libraries-7.x-2.2.tar.gz 
+downloadables[print 7.x-2.0] = http://ftp.drupal.org/files/projects/print-7.x-2.0.tar.gz

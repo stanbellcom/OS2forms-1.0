@@ -80,6 +80,9 @@ function os2forms_frontend_app_default_services_endpoint() {
         'update' => array(
           'enabled' => '1',
         ),
+        'delete' => array(
+          'enabled' => '1',
+        ),
         'index' => array(
           'enabled' => '1',
         ),

@@ -19,6 +19,7 @@ dependencies[] = rest_server
 dependencies[] = services
 dependencies[] = services_basic_auth
 dependencies[] = token
+dependencies[] = print
 dependencies[] = uuid
 dependencies[] = variable
 dependencies[] = views
@@ -36,7 +37,7 @@ features[services_endpoint][] = rest
 stylesheets[all][]  = css/style.css
 
 ; Information added by Drupal.org packaging script on 2014-07-28
-version = "1.0"
+version = "1.1"
 core = "7.x"
 project = "OS2Forms"
 datestamp = "1406515128"

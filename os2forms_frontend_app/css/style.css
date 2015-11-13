@@ -22,3 +22,14 @@ and open the template in the editor.
 .webform-client-form .inline-field.date input[type=image]{
   display: inline-block;
 }
+
+a.print_data {
+    float:right;
+    display: inline-block;
+}
+
+@media print {
+    a.print_data {
+        display: none;
+    }
+}   
