@@ -25,6 +25,8 @@ function os2forms_server_communication_settings_page() {
   $output = "<h3>Frontend servers</h3>";
   $output .='<ul class="action-links"> <li>'
     . l(t('Add'), '/admin/config/os2forms_server_communication/server/add', array('attributes' => array('name' => 'add_server')))
+    . '</li>'
+    . '<li>' . l(t('Clear backend and all frontend server'), '/admin/config/os2forms_server_communication/submissions/clear', array('attributes' => array('name' => 'add_server')))
     . '</li></ul>';
   $output .= theme('table', array('header' => $headers, 'rows' => $rows));
   return $output . render(drupal_get_form('os2forms_server_communication_submissions_download_settings_form'));
@@ -206,4 +208,66 @@ function _os2forms_server_communication_submission_pdf_dir_validate($element, &$
 
         form_error($element, "Directory " . $value . " is not writable. Check permissions");
     }
+}
+
+function os2forms_server_communication_clear_submissions_form($form, $form_state) {
+
+  if (isset($form_state['input']['op']) && $form_state['input']['op'] == t('Cancel')) {
+    drupal_goto('/admin/config/os2forms_server_communication/settings');
+  }
+  
+  $form['confirmation_text'] = array(
+    '#markup' => '<h3>Are you sure you want to delete submissions from backend server and all frontend servers?</h3> <p>This action cannot be undone.</p>'
+  ); 
+  $form['delete'] = array(
+    '#type' => 'submit',
+    '#value' => t('Delete')
+  );
+  $form['cancel'] = array(
+    '#type' => 'button',
+    '#value' => t('Cancel')
+  );
+  return $form;
+}
+
+function os2forms_server_communication_clear_submissions_form_submit($form, $form_state) {
+  module_load_include('inc', 'webform', 'includes/webform.submissions'); 
+  //Get servers frontend list
+  $query = db_select('os2forms_server_communication_servers_list', 's');
+  $query->fields('s', array('id', 'server_name', 'url', 'username', 'psw'));
+  $servers = $query->execute()
+    ->fetchAllAssoc('id');
+  
+//Get local webform nid
+  $query = db_select('node', 'n')
+    ->fields('n', array('nid'))
+    ->condition('n.title', WEBFORM_TITLE, '=')
+    ->condition('n.type', 'webform', '=');
+  $local_webform_nid = $query->execute()->fetchField();
+  var_dump($local_webform_nid);
+  foreach ($servers as $server) {
+    $options = array(
+      'headers' => array(
+        'Content-Type' => 'application/json',
+        'Authorization' => "Basic " . base64_encode($server->username . ':' . decrypt($server->psw)),),
+      'method' => 'GET',
+    );
+    //get frontend webform nid
+    $frontend_webform_nid = _os2forms_server_communication_get_frontend_webform_nid_by_title(WEBFORM_TITLE, $server->url . '/rest/node.json', $options['headers']);
+    if ($frontend_webform_nid === FALSE)       continue;
+    $result = drupal_http_request($server->url . '/rest/webform_submission.json?parameters[nid]=' . $frontend_webform_nid, $options);
+    $result = json_decode($result->data);
+    foreach ($result as $submission) {          
+      $url = $server->url . '/rest/webform_submission/' . $submission->nid . '/' . $submission->sid . '.json';
+      os2forms_server_communication_delete_frontend_submission($url, $options['headers']);
+   }  
+  }
+  //delete backend submissions
+  $node = node_load($local_webform_nid); 
+  $local_submissions = webform_get_submissions($local_webform_nid);
+ 
+  foreach ($local_submissions as $submission) 
+    webform_submission_delete($node, $submission);  
+    drupal_set_message(' backend and all frontend servers submissions were deleted successfully', 'status');
+    drupal_goto('/admin/config/os2forms_server_communication/settings');
 }

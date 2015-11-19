@@ -22,7 +22,6 @@ dependencies[] = uuid
 dependencies[] = variable
 dependencies[] = views
 dependencies[] = webform
-dependencies[] = webform2pdf
 dependencies[] = webform_submission_uuid
 features[features_api][] = api:1
 features[filter][] = full_html

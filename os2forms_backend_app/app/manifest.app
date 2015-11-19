@@ -23,13 +23,11 @@ dependencies[node_export] = node_export 7.x-3.0
 dependencies[webform_submission_uuid] = webform_submission_uuid 7.x-1.x-dev
 dependencies[libraries] = libraries 7.x-2.2
 dependencies[os2forms_server_communication] = os2forms_server_communication 7.x 1.0
-dependencies[webform2pdf] = webform2pdf 7.x-4.0
 dependencies[encrypt] = encrypt 7.x-2.1
 
 downloadables[os2forms_backend_app 7.x-1.0] = https://github.com/OS2Forms/OS2forms-1.0/blob/master/os2forms_backend_app.zip?raw=true
 downloadables[os2forms_server_communication 7.x 1.0] = https://github.com/OS2Forms/OS2forms-1.0/blob/master/os2forms_server_communication.zip?raw=true
 downloadables[i18n 7.x-1.13] = http://ftp.drupal.org/files/projects/i18n-7.x-1.13.tar.gz
-downloadables[webform2pdf 7.x-4.0] = http://ftp.drupal.org/files/projects/webform2pdf-7.x-4.0.tar.gz
 downloadables[variable 7.x-2.5] = http://ftp.drupal.org/files/projects/variable-7.x-2.5.tar.gz
 downloadables[entity 7.x-1.6] = http://ftp.drupal.org/files/projects/entity-7.x-1.6.tar.gz
 downloadables[views 7.x-3.11] = http://ftp.drupal.org/files/projects/views-7.x-3.11.tar.gz
