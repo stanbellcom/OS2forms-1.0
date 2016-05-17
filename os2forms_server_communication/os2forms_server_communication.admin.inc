@@ -73,7 +73,7 @@ function os2forms_server_communication_delete_server_form($form, $form_state) {
 function os2forms_server_communication_delete_server_form_submit($form, $form_state) {
   $input = $form_state['input'];
   extract($input);
-  db_delete('os2forms_backend_servers_list')
+  db_delete('os2forms_server_communication_servers_list')
     ->condition('id', $id)
     ->execute();
   drupal_set_message('Server deleted', 'status');
